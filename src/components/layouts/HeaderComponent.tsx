@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
-import { FaGithub, FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaCrown } from "react-icons/fa";
 import { FiSun, FiMoon } from "react-icons/fi";
 
 import clsxm from "@/lib/helpers/clsxm";
@@ -38,14 +38,14 @@ const HeaderComponent = () => {
         <div className="inline-flex items-center gap-1 md:gap-3">
           <ButtonLink
             variant="ghost"
-            href="https://github.com/yehezkielgunawan/wa-helper"
+            href="/PremiumSection"
             className={clsxm(
               "gap-2 text-lightgray-900 dark:text-lightgray-400",
               "hover:bg-daviesgrey-100 dark:hover:bg-daviesgrey-400"
             )}
           >
-            <FaGithub size={28} />
-            <span className="hidden sm:block">Github Repo</span>
+            <FaCrown size={28} />
+            <span className="hidden sm:block">Premium </span>
           </ButtonLink>
           <Button
             variant="outline"
