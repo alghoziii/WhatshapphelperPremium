@@ -41,7 +41,18 @@ const Home = ({ countryCodes }: { countryCodes: Array<CountryCodeProps> }) => {
   };
 
   const handleMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    return setMessage(encodeURIComponent(e.target.value));
+    // return setMessage(encodeURIComponent(e.target.value));
+    // Mengambil teks pesan dari textarea
+    const inputMessage = e.target.value;
+
+    // Memeriksa apakah teks pesan melebihi 20 karakter
+    if (inputMessage.length <= 20) {
+      // Mengatur state pesan dengan teks pesan yang sudah dienkripsi
+      setMessage(encodeURIComponent(inputMessage));
+    } else {
+      // Jika teks pesan melebihi 20 karakter, ambil hanya 20 karakter pertama
+      setMessage(encodeURIComponent(inputMessage.slice(0, 20)));
+    }
   };
 
   const handleCopiedLink = async () => {
@@ -87,19 +98,9 @@ const Home = ({ countryCodes }: { countryCodes: Array<CountryCodeProps> }) => {
           <h1>WhatsApp Helper</h1>
 
           <h4>
-            A web app to save your time to directly chat without saving the
-            phone number.
+            web untuk menghemat waktu Anda untuk mengobrol langsung tanpa
+            menyimpan nomor telepon.
           </h4>
-
-          <div className="space-y-0.5">
-            <p className="text-sm font-semibold underline">
-              This site does not collect any personal information.
-            </p>
-
-            <p className="text-xs">
-              You can check the source code by yourself.
-            </p>
-          </div>
         </section>
 
         <section className="mx-auto my-10 max-w-lg space-y-2 px-4 md:px-0">
@@ -155,12 +156,17 @@ const Home = ({ countryCodes }: { countryCodes: Array<CountryCodeProps> }) => {
                 onChange={handleMessage}
               />
             </div>
+            {message.length > 20 && (
+              <p className="text-sm text-red-500">
+                Text Lebih dari 20 kata silahkan gunakan Premium.
+              </p>
+            )}
           </div>
 
           <div className="flex justify-between gap-2">
             <Button
               className={clsxm("grow justify-center")}
-              disabled={waNum.length < 10}
+              disabled={waNum.length < 10 || message.length > 20}
               onClick={() => openWAAPI()}
               role="generateButton"
             >
