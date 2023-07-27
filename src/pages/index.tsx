@@ -158,7 +158,7 @@ const Home = ({ countryCodes }: { countryCodes: Array<CountryCodeProps> }) => {
             </div>
             {message.length > 20 && (
               <p className="text-sm text-red-500">
-                Text Melebihi Karakter silahkan gunakan Premium.
+                Text Melebihi Karakter Silahkan Gunakan Premium.
               </p>
             )}
           </div>
