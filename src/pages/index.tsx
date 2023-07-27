@@ -166,7 +166,7 @@ const Home = ({ countryCodes }: { countryCodes: Array<CountryCodeProps> }) => {
           <div className="flex justify-between gap-2">
             <Button
               className={clsxm("grow justify-center")}
-              disabled={waNum.length < 10 || message.length > 20}
+              disabled={waNum.length < 11 || message.length > 20}
               onClick={() => openWAAPI()}
               role="generateButton"
             >
@@ -178,7 +178,7 @@ const Home = ({ countryCodes }: { countryCodes: Array<CountryCodeProps> }) => {
               className="grow gap-2"
               onClick={() => handleCopiedLink()}
               isLoading={copiedLink.length < 1 && isCopied ? true : false}
-              disabled={waNum.length < 10}
+              disabled={waNum.length < 11}
             >
               <FaCopy size="16" /> Copy Link
             </Button>
